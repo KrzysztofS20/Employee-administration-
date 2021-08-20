@@ -41,4 +41,13 @@ public class Product {
         this.author = author;
         this.category = category;
     }
+
+    public Product(String name, String description, String photo, Double price, Author author, Category category) {
+        this.name = name;
+        this.description = description;
+        this.photo = photo;
+        this.price = price;
+        this.author = author;
+        this.category = category;
+    }
 }
