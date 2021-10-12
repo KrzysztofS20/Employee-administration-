@@ -30,7 +30,7 @@ public class Product {
     private Category category;
 
     @OneToMany(mappedBy = "product")
-    private List<ProductOrder> productOrders = new ArrayList<>();
+    private List<Basket> baskets = new ArrayList<>();
 
     public Product(Long id, String name, String description, String photo, Double price, Author author, Category category) {
         this.id = id;

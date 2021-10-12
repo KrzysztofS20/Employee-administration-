@@ -11,18 +11,16 @@ import java.sql.Date;
 @Getter
 @Setter
 @Builder
-public class ProductList {
+public class Basket {
     @Id
     @GeneratedValue
     private Long id;
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
-
-    private Date date;
-    private Double finalPrice;
+    private int quantity;
 
     @ManyToOne
-    @JoinColumn(name = "product_order_id", nullable = false)
-    private ProductOrder productOrder;
+    @JoinColumn(name = "product_id")
+    private Product product;
 }

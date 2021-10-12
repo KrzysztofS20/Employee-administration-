@@ -1,7 +1,6 @@
 package com.krzysztof.shop.shop.controller;
 
 import com.krzysztof.shop.shop.model.Category;
-import com.krzysztof.shop.shop.repository.CategoryRepository;
 import com.krzysztof.shop.shop.service.CategoryService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,20 +31,20 @@ public class ControlPanelCategoryController {
 
     @PostMapping("/addCategory")
     public RedirectView addCategory(@ModelAttribute("newCategory") Category category) {
-        categoryService.saveCategory(category);
+        categoryService.save(category);
         return new RedirectView("/controlPanelCategory");
     }
 
 
     @PostMapping("/deleteCategory/{id}")
     public RedirectView deleteCategory(@PathVariable Long id) {
-        categoryService.deleteCategory(id);
+        categoryService.delete(id);
         return new RedirectView("/controlPanelCategory");
     }
 
     @PostMapping("/editCategory/{id}")
     public RedirectView editCategory(@ModelAttribute("abc") Category category, @PathVariable("id") Long id) {
-        categoryService.editCategory(category, id);
+        categoryService.edit(category, id);
         return new RedirectView("/controlPanelCategory");
     }
 }

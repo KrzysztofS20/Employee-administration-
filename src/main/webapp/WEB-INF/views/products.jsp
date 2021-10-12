@@ -81,7 +81,7 @@
         </div>
 
         <div class="row portfolio-container">
-<c:forEach items="${productList}" var="product">
+<c:forEach items="${basket}" var="product">
           <div class="col-lg-4 col-md-6 portfolio-item">
             <a href='<c:url value="/products/${product.id}"/>'>
             <div class="portfolio-wrap">
@@ -95,103 +95,6 @@
           </div>
 
 </c:forEach>
-
-          <div class="col-lg-4 col-md-6 portfolio-item">
-            <a href='<c:url value="/productDetail"/>'>
-            <div class="portfolio-wrap">
-              <img src="../resources/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Nazwa produktu</h4>
-                <p>Cena</p>
-              </div>
-            </div>
-          </a>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item">
-            <a href='<c:url value="/productDetail"/>'>
-            <div class="portfolio-wrap">
-              <img src="../resources/img/portfolio/portfolio-3.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Nazwa produktu</h4>
-                <p>Cena</p>
-              </div>
-            </div>
-          </a>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item">
-            <a href='<c:url value="/productDetail"/>'>
-            <div class="portfolio-wrap">
-              <img src="../resources/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Nazwa produktu</h4>
-                <p>Cena</p>
-              </div>
-            </div>
-          </a>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item">
-            <a href='<c:url value="/productDetail"/>'>
-            <div class="portfolio-wrap">
-              <img src="../resources/img/portfolio/portfolio-5.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Nazwa produktu</h4>
-                <p>Cena</p>
-              </div>
-            </div>
-          </a>
-          </div>
-          
-          <div class="col-lg-4 col-md-6 portfolio-item">
-            <a href='<c:url value="/productDetail"/>'>
-            <div class="portfolio-wrap">
-              <img src="../resources/img/portfolio/portfolio-6.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Nazwa produktu</h4>
-                <p>Cena</p>
-              </div>
-            </div>
-          </a>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item">
-            <a href='<c:url value="/productDetail"/>'>
-            <div class="portfolio-wrap">
-              <img src="../resources/img/portfolio/portfolio-7.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Nazwa produktu</h4>
-                <p>Cena</p>
-              </div>
-            </div>
-          </a>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item">
-            <a href='<c:url value="/productDetail"/>'>
-            <div class="portfolio-wrap">
-              <img src="../resources/img/portfolio/portfolio-8.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Nazwa produktu</h4>
-                <p>Cena</p>
-              </div>
-            </div>
-          </a>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item">
-            <a href='<c:url value="/productDetail"/>'>
-            <div class="portfolio-wrap">
-              <img src="../resources/img/portfolio/portfolio-9.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Nazwa produktu</h4>
-                <p>Cena</p>
-              </div>
-            </div>
-          </a>
-          </div>
-
         </div>
 
       </div>

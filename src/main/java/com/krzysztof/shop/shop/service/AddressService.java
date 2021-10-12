@@ -17,15 +17,15 @@ public class AddressService {
         return addressRepository.findAll();
     }
 
-    public void saveAddress(Address address) {
+    public void save(Address address) {
         addressRepository.save(address);
     }
 
-    public Address getAddressById(Long id) {
+    public Address getById(Long id) {
         return addressRepository.findById(id).get();
     }
 
-    public void deleteAddress(Long id) {
+    public void delete(Long id) {
         addressRepository.deleteById(id);
     }
 

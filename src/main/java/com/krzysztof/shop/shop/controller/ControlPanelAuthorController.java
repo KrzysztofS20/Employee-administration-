@@ -38,13 +38,13 @@ public class ControlPanelAuthorController {
 
     @PostMapping("/deleteAuthor/{id}")
     public RedirectView deleteAuthor(@PathVariable Long id) {
-        authorService.deleteAuthor(id);
+        authorService.delete(id);
         return new RedirectView("/controlPanelAuthor");
     }
 
     @PostMapping("/editAuthor/{id}")
     public RedirectView editAuthor(@ModelAttribute Author author, @PathVariable("id") Long id) {
-        authorService.editAuthor(author, id);
+        authorService.edit(author, id);
         return new RedirectView("/controlPanelAuthor");
     }
 }

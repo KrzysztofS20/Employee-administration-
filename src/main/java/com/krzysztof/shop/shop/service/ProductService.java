@@ -17,15 +17,15 @@ public class ProductService {
         return productRepository.findAll();
     }
 
-    public void saveProduct(Product product) {
+    public void save(Product product) {
         productRepository.save(product);
     }
 
-    public Product getProductById(Long id) {
+    public Product getById(Long id) {
         return productRepository.findById(id).get();
     }
 
-    public void deleteProduct(Long id) {
+    public void delete(Long id) {
         productRepository.deleteById(id);
     }
 
@@ -39,6 +39,6 @@ public class ProductService {
                 product.getAuthor(),
                 product.getCategory()
         );
-        saveProduct(edited);
+        save(edited);
     }
 }
