@@ -15,10 +15,6 @@ public class BasketService {
 
     private final BasketRepository basketRepository;
 
-    public List<Basket> listBasket(User user){
-        return basketRepository.findByUser(user);
-    }
-
     public void save(Basket basket) {
         basketRepository.save(basket);
     }

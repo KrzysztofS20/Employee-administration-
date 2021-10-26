@@ -35,9 +35,9 @@ public class BasketTest {
         User user = userService.getById(17L);
         Product product = productService.getById(20L);
         Basket newItem = new Basket();
-        newItem.setUser(user);
-        newItem.setProduct(product);
-        newItem.setQuantity(1);
+      //  newItem.setUser(user);
+     //   newItem.setProduct(product);
+   //     newItem.setQuantity(1);
 
         Basket saveBasketItem = basketRepository.save(newItem);
 
@@ -47,8 +47,8 @@ public class BasketTest {
     public void testGetBasketByUser(){
         User user = userService.getById(17L);
 
-        List<Basket> baskets = basketRepository.findByUser(user);
+   //     List<Basket> baskets = basketRepository.findByUser(user);
 
-        assertEquals(1,baskets.size());
+    //    assertEquals(1,baskets.size());
     }
 }

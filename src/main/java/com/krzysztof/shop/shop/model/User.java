@@ -31,7 +31,10 @@ public class User{
     private Address address;
 
     @OneToMany(mappedBy = "user")
-    private List<Basket> baskets = new ArrayList<>();
+    private List<ProductOrderToBasket> productOrderToBasketList = new ArrayList<>();
+
+    @OneToOne(mappedBy = "users")
+    private Basket basket;
 
 
     public User(String userName, String surname, String email, String password, String phoneNumber, ApplicationUserRole role,boolean active) {

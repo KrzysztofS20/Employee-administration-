@@ -8,12 +8,14 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
 public class UserService {
 
     private final UserReposiotry userReposiotry;
+
 
 
     public List<User> findAll(){
@@ -34,5 +36,10 @@ public class UserService {
 
     public void delete(Long id) {
         userReposiotry.deleteById(id);
+    }
+
+    public Long getByName(String name){
+Optional<User> listOfUsers = userReposiotry.findUserByUserName(name);
+        return listOfUsers.stream().findFirst().get().getId();
     }
 }

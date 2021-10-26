@@ -24,7 +24,7 @@
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
       <div class="h3" style="margin-bottom: 0px;">
-      <a href="basket.html"><i class="bi bi-cart text-dark" ></i></a>
+      <a href='<c:url value="/basket"/>'><i class="bi bi-cart text-dark" ></i></a>
     </div></div>
   </header><!-- End Header -->
 
@@ -81,7 +81,7 @@
         </div>
 
         <div class="row portfolio-container">
-<c:forEach items="${basket}" var="product">
+<c:forEach items="${productList}" var="product">
           <div class="col-lg-4 col-md-6 portfolio-item">
             <a href='<c:url value="/products/${product.id}"/>'>
             <div class="portfolio-wrap">

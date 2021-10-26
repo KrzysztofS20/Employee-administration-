@@ -24,7 +24,7 @@
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
       <div class="h3" style="margin-bottom: 0px;">
-      <a href="basket.html"><i class="bi bi-cart text-dark" ></i></a>
+      <a href='<c:url value="/basket"/>'><i class="bi bi-cart text-dark" ></i></a>
     </div></div>
   </header><!-- End Header -->
 
@@ -49,13 +49,14 @@
               </ul>
               <div class="row">
                 <div class="col-2">
-              <button type="button " onclick="addOne()" class="btn btn-dark rounded-circle"><i class="bi bi-plus-circle"></i></button> </div>
+                  <button type="button" onclick="deleteOne()" class="btn btn-dark rounded-circle"><i class="bi bi-dash-circle"></i></button>
+               </div>
               
                 <div class="col-2 text-center">
               <a  type="input" id="counter">1</a></div>
             
             <div class="col-2">
-              <button type="button" onclick="deleteOne()" class="btn btn-dark rounded-circle"><i class="bi bi-dash-circle"></i></button> </div>
+              <button type="button " onclick="addOne()" class="btn btn-dark rounded-circle"><i class="bi bi-plus-circle"></i></button> </div>
               <div class="col-6">
               <button type="submit"  class="btn btn-dark ">Add to basket</button> </div>
             </div>
