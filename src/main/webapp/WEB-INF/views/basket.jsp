@@ -44,19 +44,20 @@
 <div class="container">
   <div class="row">
 
-    <c:forEach items="${basket}" var="basket">
+    <c:forEach items="${userBasket.productOrderToBasketList}" var="basket">
+
 
     <div class="col-9">
       <div class="info-box" style="padding-bottom: 5px;">
 <div>
   <div class="row">
     <div class="col-4" style="padding-left: 32px;">
-      <img src="assets/img/portfolio/portfolio-3.jpg" class="img-fluid" alt="">
+      <img src="../resources/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
       
     </div>
     <div class="col-8">
-      <h3> Tytuł produktu</h3>
-      <div class="col-4">price per item: </div>
+      <h3>${basket.product.name}</h3>
+      <div class="col-4">price per item: ${basket.product.price}</div>
     </div>
   </div>
   <div class="row">
@@ -64,14 +65,14 @@
       <h6 style="padding-top: 10px;">Quantity:</h6>
     </div>
     <div class="col-1" style="padding-left:0 ;">
-      <h2>x</h2>
+      <h2>${basket.quantity}</h2>
     </div>
     <div class="col-2"></div>
     <div class="col-1">
       <h6 style="padding-top: 10px;">Sum:</h6>
     </div>
     <div class="col-1">
-      <h2>x</h2>
+      <h2>${basket.toPay}</h2>
     </div>
     
     <div class="col-1 offset-4">
@@ -96,7 +97,7 @@
             <h5>Total amount</h5>
           </div>
           <div class="col-6">
-            <h5>10</h5>
+            <h5>${userBasket.summaryToPay}</h5>
           </div>
         </div>
 <div class="row">

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.util.Optional;
 
 
 @Controller
@@ -27,8 +28,8 @@ public class BasketController {
     @GetMapping("/basket")
     public String getBasket(Model model, @CurrentSecurityContext(expression = "authentication?.name") String name) {
         Long userId = userService.getByName(name);
-        Basket basket = basketService.getById(userId);
-        model.addAttribute("basket",basket);
+        Basket basket = basketService.findByUserId(userId);
+        model.addAttribute("userBasket",basket);
         return "basket";
     }
 }

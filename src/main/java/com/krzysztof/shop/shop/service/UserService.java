@@ -17,12 +17,11 @@ public class UserService {
     private final UserReposiotry userReposiotry;
 
 
-
-    public List<User> findAll(){
+    public List<User> findAll() {
         return userReposiotry.findAll();
     }
 
-    public void createUser(UserDetails user){
+    public void createUser(UserDetails user) {
         userReposiotry.save((User) user);
     }
 
@@ -38,8 +37,12 @@ public class UserService {
         userReposiotry.deleteById(id);
     }
 
-    public Long getByName(String name){
-Optional<User> listOfUsers = userReposiotry.findUserByUserName(name);
-        return listOfUsers.stream().findFirst().get().getId();
+    public Long getByName(String name) {
+        return userReposiotry.findUserByName(name)
+                .stream()
+                .findFirst()
+                .get()
+                .getId();
     }
+
 }

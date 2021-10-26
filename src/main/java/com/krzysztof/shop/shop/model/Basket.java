@@ -23,4 +23,9 @@ public class Basket {
     @OneToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User users;
+
+    public Basket(User users) {
+        this.users = users;
+    }
+    private Double summaryToPay;
 }

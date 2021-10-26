@@ -26,4 +26,14 @@ public class ProductOrderToBasket {
     @ManyToOne
     @JoinColumn(name="basket_id" , nullable = false)
     private Basket basket;
+
+    private Double toPay;
+
+    public ProductOrderToBasket(User user, int quantity, Product product, Basket basket, Double toPay) {
+        this.user = user;
+        this.quantity = quantity;
+        this.product = product;
+        this.basket = basket;
+        this.toPay = toPay;
+    }
 }
