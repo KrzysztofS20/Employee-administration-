@@ -24,6 +24,7 @@
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
       <div class="h3" style="margin-bottom: 0px;">
+        <a href='<c:url value="/person"/>'><i class="bi bi-person-circle text-dark" ></i></a>
       <a href='<c:url value="/basket"/>'><i class="bi bi-cart text-dark" ></i></a>
     </div></div>
   </header><!-- End Header -->
@@ -47,19 +48,20 @@
                 <li><strong>Price</strong>: ${product.price} <i class="bi bi-currency-euro"></i></li>
                 <li><strong>Autor</strong>: ${product.author.name} ${product.author.surname}</li>
               </ul>
-              <div class="row">
-                <div class="col-2">
-                  <button type="button" onclick="deleteOne()" class="btn btn-dark rounded-circle"><i class="bi bi-dash-circle"></i></button>
-               </div>
-              
-                <div class="col-2 text-center">
-              <a  type="input" id="counter">1</a></div>
-            
-            <div class="col-2">
-              <button type="button " onclick="addOne()" class="btn btn-dark rounded-circle"><i class="bi bi-plus-circle"></i></button> </div>
-              <div class="col-6">
-              <button type="submit"  class="btn btn-dark ">Add to basket</button> </div>
-            </div>
+              <form method="post"  action='<c:url value="/addItem/${product.id}"/>'>
+                <div class="form-group">
+                  <label for="quantity">choose quantity </label>
+                  <select name="quantityOfProduct" class="form-control" id="quantity">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+                <button type="submit"  class="btn btn-dark ">Add to basket</button>
+
+          </form>
           </div>
             
             <div class="portfolio-description">
