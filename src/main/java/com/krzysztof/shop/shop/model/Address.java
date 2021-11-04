@@ -24,4 +24,19 @@ public class Address {
 
     @OneToOne(mappedBy = "address")
     private User user;
+
+    public Address(String country, String city, String street, String postcode) {
+        this.country = country;
+        this.city = city;
+        this.street = street;
+        this.postcode = postcode;
+    }
+
+    public Address(Long id, String country, String city, String street, String postcode) {
+        this.id = id;
+        this.country = country;
+        this.city = city;
+        this.street = street;
+        this.postcode = postcode;
+    }
 }

@@ -24,14 +24,16 @@ public class ShopApplication implements ApplicationRunner {
     private  final UserService userService;
     private  final BasketService basketService;
     private final ProductOrderToBasketService productOrderToBasketService;
+    private final AddressService addressService;
 
-    public ShopApplication(AuthorService authorService, CategoryService categoryService, ProductService productService, UserService userService, BasketService basketService, ProductOrderToBasketService productOrderToBasketService) {
+    public ShopApplication(AuthorService authorService, CategoryService categoryService, ProductService productService, UserService userService, BasketService basketService, ProductOrderToBasketService productOrderToBasketService, AddressService addressService) {
         this.authorService = authorService;
         this.categoryService = categoryService;
         this.productService = productService;
         this.userService = userService;
         this.basketService = basketService;
         this.productOrderToBasketService = productOrderToBasketService;
+        this.addressService = addressService;
     }
 
     public static void main(String[] args) {
@@ -61,7 +63,7 @@ public class ShopApplication implements ApplicationRunner {
         Category wood = new Category("Wood", wardrobes);
         Category composite = new Category("Composite", wardrobes);
 
-        Category homeAppliances = new Category("Home appliances");
+        Category homeAppliances = new Category("HomeAppliances");
         Category ovens = new Category("ovens", homeAppliances);
         Category refrigerators = new Category("refrigerators", homeAppliances);
 
@@ -111,6 +113,10 @@ public class ShopApplication implements ApplicationRunner {
             productService.save(singleCeilingLight);
             productService.save(singleWallLight);
         }
+
+        List<Address> addressList = addressService.findAll();
+        Address firstAddres = new Address("Poland","Szczecin","Wyszynskiego","12-000");
+
 List<User> userList = userService.findAll();
         User first = new User("Krzysztof","Stasiak","jedne@ot.pl","123","789456132", ApplicationUserRole.ADMIN,true);
         User second = new User("Tomasz","Borasz","dwa@ot.pl","987","000000000",ApplicationUserRole.CUSTOMER,true);

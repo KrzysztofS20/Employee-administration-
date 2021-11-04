@@ -1,6 +1,8 @@
 package com.krzysztof.shop.shop.service;
 
 
+import com.krzysztof.shop.shop.auxiliaryClasses.ModelForFormEditUserWithAddres;
+import com.krzysztof.shop.shop.model.Address;
 import com.krzysztof.shop.shop.model.User;
 import com.krzysztof.shop.shop.repository.UserReposiotry;
 import lombok.RequiredArgsConstructor;
@@ -15,6 +17,8 @@ import java.util.Optional;
 public class UserService {
 
     private final UserReposiotry userReposiotry;
+    private final AddressService addressService;
+
 
 
     public List<User> findAll() {
@@ -45,4 +49,57 @@ public class UserService {
                 .getId();
     }
 
+    public Optional<User> getByName(String name){
+        return userReposiotry.findUserByUserName(name);
+    }
+    public void update(ModelForFormEditUserWithAddres userWithAddres,Long id){
+        User oldUser = getById(id);
+        if (oldUser.getAddress()==null){
+            Address address = new Address(userWithAddres.getCountry(),
+                    userWithAddres.getCity(),
+                    userWithAddres.getStreet(),
+                    userWithAddres.getPostCode());
+            addressService.save(address);
+
+            User newUser = new User(id,
+                    oldUser.getUserName(),
+                    oldUser.getSurname(),
+                    userWithAddres.getEmail(),
+                    oldUser.getPassword(),
+                    userWithAddres.getPhoneNumber(),
+                    oldUser.getRole(),
+                    oldUser.isActive(),
+                    address,
+                    oldUser.getProductOrderToBasketList(),
+                    oldUser.getBasket()
+            );
+            save(newUser);
+
+        }else {Address OldAdress = oldUser.getAddress();
+            Address address = new Address(oldUser.getAddress().getId(),
+                    userWithAddres.getCountry(),
+                    userWithAddres.getCity(),
+                    userWithAddres.getStreet(),
+                    userWithAddres.getPostCode());
+            addressService.save(address);
+
+            User newUser = new User(id,
+                    oldUser.getUserName(),
+                    oldUser.getSurname(),
+                    userWithAddres.getEmail(),
+                    oldUser.getPassword(),
+                    userWithAddres.getPhoneNumber(),
+                    oldUser.getRole(),
+                    oldUser.isActive(),
+                    address,
+                    oldUser.getProductOrderToBasketList(),
+                    oldUser.getBasket()
+            );
+            save(newUser);
+        }
+
+
+
+
+    }
 }

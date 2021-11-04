@@ -33,15 +33,11 @@ public class CategoryService {
     }
 
     public void edit(Category category, Long id) {
-//        Category editCategory = new Category();
-//        editCategory.setId(id);
-//        editCategory.setName(category.getName());
-//
-//        if (!category.getCategories().isEmpty()) {
-//            editCategory.setCategories(category.getCategories());
-//        }
         categoryRepository.save(category);
     }
 
+    public List<Category> getByName(String name) {
+        return categoryRepository.findCategoryByName(name);
+    }
 
 }

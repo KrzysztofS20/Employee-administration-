@@ -86,7 +86,7 @@
 
                     <nav id="navbar" class="navbar">
                         <ul>
-                            <li class="dropdown"><a><span>Obecne drzewo kategori</span> <i
+                            <li class="dropdown"><a><span>The current category tree </span> <i
                                     class="bi bi-chevron-down"></i></a>
                                 <ul>
                                     <c:forEach items="${categoryList}" var="category1">
