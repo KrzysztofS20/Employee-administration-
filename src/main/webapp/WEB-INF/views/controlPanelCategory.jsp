@@ -22,7 +22,8 @@
             <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->
         <div class="h3" style="margin-bottom: 0px;">
-            <a href="basket.html"><i class="bi bi-cart text-dark"></i></a>
+            <a href='<c:url value="/person"/>'><i class="bi bi-person-circle text-dark" ></i></a>
+            <a href='<c:url value="/basket"/>'><i class="bi bi-cart text-dark"></i></a>
         </div>
     </div>
 </header>
@@ -85,7 +86,7 @@
 
                     <nav id="navbar" class="navbar">
                         <ul>
-                            <li class="dropdown"><a><span>Obecne drzewo kategori</span> <i
+                            <li class="dropdown"><a><span>The current category tree </span> <i
                                     class="bi bi-chevron-down"></i></a>
                                 <ul>
                                     <c:forEach items="${categoryList}" var="category1">

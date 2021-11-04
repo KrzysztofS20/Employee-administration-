@@ -7,7 +7,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -21,28 +20,24 @@ public class CategoryService {
     }
 
 
-    public void saveCategory(Category category) {
+    public void save(Category category) {
         categoryRepository.save(category);
     }
 
-    public Category getCategoryById(Long id) {
+    public Category getById(Long id) {
         return categoryRepository.findById(id).get();
     }
 
-    public void deleteCategory(Long id) {
+    public void delete(Long id) {
         categoryRepository.deleteById(id);
     }
 
-    public void editCategory(Category category, Long id) {
-//        Category editCategory = new Category();
-//        editCategory.setId(id);
-//        editCategory.setName(category.getName());
-//
-//        if (!category.getCategories().isEmpty()) {
-//            editCategory.setCategories(category.getCategories());
-//        }
+    public void edit(Category category, Long id) {
         categoryRepository.save(category);
     }
 
+    public List<Category> getByName(String name) {
+        return categoryRepository.findCategoryByName(name);
+    }
 
 }

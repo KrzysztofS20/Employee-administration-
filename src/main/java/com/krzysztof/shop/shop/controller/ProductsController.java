@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+
 import java.util.List;
 
 @Controller
@@ -31,5 +32,13 @@ private final ProductService productService;
         return "products";
     }
 
+    @GetMapping("/sortProducts/{name}")
+    public String getSortedProducts(Model model, @PathVariable String name) {
+        List<Product> sortedProductList = productService.findByCategoryId(name);
+        List<Category> categoryList = categoryService.findAll();
+        model.addAttribute("productList",sortedProductList);
+        model.addAttribute("categoryList", categoryList);
+        return "sortedProducts";
+    }
 
 }

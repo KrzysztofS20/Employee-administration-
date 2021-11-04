@@ -22,15 +22,15 @@ public class AuthorService {
         authorRepository.save(author);
     }
 
-    public Author getAuthorById(Long id) {
+    public Author getById(Long id) {
         return authorRepository.findById(id).get();
     }
 
-    public void deleteAuthor(Long id) {
+    public void delete(Long id) {
         authorRepository.deleteById(id);
     }
 
-    public void editAuthor(Author author, Long id) {
+    public void edit(Author author, Long id) {
         Author edited = new Author(
                 id,
                 author.getName(),

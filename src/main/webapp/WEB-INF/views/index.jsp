@@ -22,8 +22,10 @@
       </ul>
       <i class="bi bi-list mobile-nav-toggle"></i>
     </nav><!-- .navbar -->
+
     <div class="h3" style="margin-bottom: 0px;">
-      <a href="basket.html"><i class="bi bi-cart text-dark" ></i></a>
+      <a href='<c:url value="/person"/>'><i class="bi bi-person-circle text-dark" ></i></a>
+      <a href='<c:url value="/basket"/>'><i class="bi bi-cart text-dark" ></i></a>
     </div></div>
 </header><!-- End Header -->
 
@@ -50,49 +52,8 @@
       </div>
     </div>
   </section><!-- End Hero -->
-
-  <main id="main">
-
-    <!-- ======= Featured Section ======= -->
-   
-
-   
-
-   
-
-    <!-- ======= Clients Section ======= -->
-    <section id="clients" class="clients">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Clients</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-        </div>
-
-        <div class="clients-slider swiper-container">
-          <div class="swiper-wrapper align-items-center">
-            <div class="swiper-slide"><img src="assets/img/clients/client-1.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-2.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-3.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-4.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-5.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-6.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-7.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-8.png" class="img-fluid" alt=""></div>
-          </div>
-          <div class="swiper-pagination"></div>
-        </div>
-
-      </div>
-    </section><!-- End Clients Section -->
-
-  </main><!-- End #main -->
-
   <!-- ======= Footer ======= -->
   <footer id="footer">
-
-    
-
     <div class="container">
       <div class="copyright">
         &copy; Copyright <strong><span>Eterna</span></strong>. All Rights Reserved

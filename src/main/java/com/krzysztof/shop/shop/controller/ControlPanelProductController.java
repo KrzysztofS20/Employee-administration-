@@ -42,14 +42,14 @@ public class ControlPanelProductController {
 
     @PostMapping("/addProduct")
     public RedirectView addProduct(@ModelAttribute Product product) {
-        productService.saveProduct(product);
+        productService.save(product);
         return new RedirectView("/controlPanelProduct");
     }
 
 
     @PostMapping("/deleteProduct/{id}")
     public RedirectView deleteProduct(@PathVariable Long id) {
-        productService.deleteProduct(id);
+        productService.delete(id);
         return new RedirectView("/controlPanelProduct");
     }
 
