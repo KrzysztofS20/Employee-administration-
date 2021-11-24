@@ -33,7 +33,7 @@ public class UserService {
 
     public void createUser(ModelForFormRegistration model) {
        User user = new User(model.getUserName(),
-               model.getSurname(),
+               model.getSurName(),
                model.getEmail(),
                model.getPassword(),
                model.getPhoneNumber(),
