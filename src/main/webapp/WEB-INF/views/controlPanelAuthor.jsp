@@ -22,7 +22,7 @@
             <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->
         <div class="h3" style="margin-bottom: 0px;">
-            <a href='<c:url value="/person"/>'><i class="bi bi-person-circle text-dark" ></i></a>
+            <a href='<c:url value="/person"/>'><i class="bi bi-person-circle text-dark"></i></a>
             <a href='<c:url value="/basket"/>'><i class="bi bi-cart text-dark"></i></a>
         </div>
     </div>
@@ -132,7 +132,8 @@
                                 </div>
                             </div>
                         </div>
-                        <button style="margin: 5px" type="submit" class="btn btn-dark button-rouded justify-content-center">Save
+                        <button style="margin: 5px" type="submit"
+                                class="btn btn-dark button-rouded justify-content-center">Save
                         </button>
                     </form>
                 </div>

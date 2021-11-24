@@ -2,9 +2,13 @@ package com.krzysztof.shop.shop.service;
 
 
 import com.krzysztof.shop.shop.auxiliaryClasses.ModelForFormEditUserWithAddres;
+import com.krzysztof.shop.shop.auxiliaryClasses.ModelForFormRegistration;
 import com.krzysztof.shop.shop.model.Address;
+import com.krzysztof.shop.shop.model.Basket;
 import com.krzysztof.shop.shop.model.User;
+import com.krzysztof.shop.shop.repository.BasketRepository;
 import com.krzysztof.shop.shop.repository.UserReposiotry;
+import com.krzysztof.shop.shop.security.ApplicationUserRole;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
@@ -18,6 +22,8 @@ public class UserService {
 
     private final UserReposiotry userReposiotry;
     private final AddressService addressService;
+    private final BasketRepository basketRepository;
+
 
 
 
@@ -25,8 +31,17 @@ public class UserService {
         return userReposiotry.findAll();
     }
 
-    public void createUser(UserDetails user) {
-        userReposiotry.save((User) user);
+    public void createUser(ModelForFormRegistration model) {
+       User user = new User(model.getUserName(),
+               model.getSurname(),
+               model.getEmail(),
+               model.getPassword(),
+               model.getPhoneNumber(),
+               ApplicationUserRole.CUSTOMER,
+               true);
+       save(user);
+       Basket basket = new Basket(user);
+       basketRepository.save(basket);
     }
 
     public void save(User user) {
