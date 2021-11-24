@@ -5,14 +5,14 @@ import lombok.Getter;
 @Getter
 public class ModelForFormRegistration {
     private String userName;
-    private String surname;
+    private String surName;
     private String email;
     private String password;
     private String phoneNumber;
 
-    public ModelForFormRegistration(String userName, String surname, String email, String password, String phoneNumber) {
+    public ModelForFormRegistration(String userName, String surName, String email, String password, String phoneNumber) {
         this.userName = userName;
-        this.surname = surname;
+        this.surName = surName;
         this.email = email;
         this.password = password;
         this.phoneNumber = phoneNumber;
