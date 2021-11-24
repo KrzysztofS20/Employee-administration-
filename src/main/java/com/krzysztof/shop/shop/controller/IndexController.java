@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class IndexController {
 
-    @GetMapping(value = {"https://spring-boot-shop.herokuapp.com/","index"})
+    @GetMapping(value = {"/","index"})
     public String getIndex(){
         return "index";
     }
