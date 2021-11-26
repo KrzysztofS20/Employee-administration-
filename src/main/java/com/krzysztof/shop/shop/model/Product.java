@@ -22,7 +22,7 @@ public class Product {
     private Double price;
 
     @ManyToOne
-    @JoinColumn(name="author_id" , nullable = false)
+    @JoinColumn(name="author_id" , nullable = true)
     private Author author;
 
     @ManyToOne
