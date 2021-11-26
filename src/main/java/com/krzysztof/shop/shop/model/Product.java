@@ -26,7 +26,7 @@ public class Product {
     private Author author;
 
     @ManyToOne
-    @JoinColumn(name="category_id" , nullable = false)
+    @JoinColumn(name="category_id" , nullable = true)
     private Category category;
 
     @OneToMany(mappedBy = "product")
