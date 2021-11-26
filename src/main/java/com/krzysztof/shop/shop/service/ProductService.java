@@ -6,6 +6,7 @@ import com.krzysztof.shop.shop.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -21,6 +22,7 @@ public class ProductService {
         return productRepository.findAll();
     }
 
+    @Transactional
     public void save(Product product) {
         productRepository.save(product);
     }
