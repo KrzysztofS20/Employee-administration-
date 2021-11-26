@@ -19,7 +19,7 @@ public class Author {
     private String name;
     private String surname;
 
-    @OneToMany(mappedBy = "author", cascade = CascadeType.ALL, orphanRemoval = true,fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "author", cascade = CascadeType.PERSIST, orphanRemoval = true,fetch = FetchType.LAZY)
     private List<Product> products = new ArrayList<>();
 
     public Author(String name, String surname) {

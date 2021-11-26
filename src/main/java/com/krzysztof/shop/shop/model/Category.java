@@ -28,7 +28,7 @@ public class Category {
     @OneToMany(mappedBy = "category" ,cascade = CascadeType.ALL,fetch = FetchType.LAZY, orphanRemoval = true)
     private List<Category> categories = new ArrayList<>();
 
-    @OneToMany(mappedBy = "category" , cascade = CascadeType.ALL,fetch = FetchType.LAZY,orphanRemoval = true)
+    @OneToMany(mappedBy = "category" , cascade = CascadeType.PERSIST,fetch = FetchType.LAZY,orphanRemoval = true)
     private List<Product> products = new ArrayList<>();
 
     public Category(String name) {
