@@ -26,7 +26,7 @@ public class Product {
     private Author author;
 
     @ManyToOne
-    @JoinColumn(name="category_id" )
+    @JoinColumn(name="category_id")
     private Category category;
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
