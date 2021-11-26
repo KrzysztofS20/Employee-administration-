@@ -22,11 +22,11 @@ public class Product {
     private Double price;
 
     @ManyToOne
-    @JoinColumn(name="author_id" , nullable = false)
+    @JoinColumn(name="author_id" )
     private Author author;
 
     @ManyToOne
-    @JoinColumn(name="category_id" , nullable = false)
+    @JoinColumn(name="category_id" )
     private Category category;
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
