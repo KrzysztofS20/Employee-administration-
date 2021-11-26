@@ -10,7 +10,6 @@ import com.krzysztof.shop.shop.repository.BasketRepository;
 import com.krzysztof.shop.shop.repository.UserReposiotry;
 import com.krzysztof.shop.shop.security.ApplicationUserRole;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
