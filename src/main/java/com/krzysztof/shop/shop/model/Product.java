@@ -22,14 +22,14 @@ public class Product {
     private Double price;
 
     @ManyToOne
-    @JoinColumn(name="author_id" , nullable = true)
+    @JoinColumn(name="author_id" , nullable = false)
     private Author author;
 
     @ManyToOne
-    @JoinColumn(name="category_id" , nullable = true)
+    @JoinColumn(name="category_id" , nullable = false)
     private Category category;
 
-    @OneToMany(mappedBy = "product")
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
     private List<ProductOrderToBasket> productOrderToBasketList = new ArrayList<>();
 
     public Product(Long id, String name, String description, String photo, Double price, Author author, Category category) {

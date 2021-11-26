@@ -17,7 +17,7 @@ public class Basket {
     @Id
     @GeneratedValue
     private Long id;
-    @OneToMany(mappedBy = "basket")
+    @OneToMany(mappedBy = "basket" , cascade = CascadeType.ALL)
     private List<ProductOrderToBasket> productOrderToBasketList = new ArrayList<>();
 
     @OneToOne

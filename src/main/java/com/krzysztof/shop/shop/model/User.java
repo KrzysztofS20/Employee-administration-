@@ -30,10 +30,10 @@ public class User{
     @JoinColumn(name = "address_id", referencedColumnName = "id")
     private Address address;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user" ,cascade = CascadeType.ALL)
     private List<ProductOrderToBasket> productOrderToBasketList = new ArrayList<>();
 
-    @OneToOne(mappedBy = "users")
+    @OneToOne(mappedBy = "users",cascade = CascadeType.ALL)
     private Basket basket;
 
 

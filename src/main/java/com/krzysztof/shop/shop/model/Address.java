@@ -2,10 +2,7 @@ package com.krzysztof.shop.shop.model;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
 @Entity
 @NoArgsConstructor
@@ -22,7 +19,7 @@ public class Address {
     private String street;
     private String postcode;
 
-    @OneToOne(mappedBy = "address")
+    @OneToOne(mappedBy = "address" ,cascade = CascadeType.ALL)
     private User user;
 
     public Address(String country, String city, String street, String postcode) {

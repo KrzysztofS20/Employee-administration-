@@ -25,10 +25,10 @@ public class Category {
     @JoinColumn(name="category_id")
     private Category category;
 
-    @OneToMany(mappedBy = "category")
+    @OneToMany(mappedBy = "category" ,cascade = CascadeType.ALL)
     private List<Category> categories = new ArrayList<>();
 
-    @OneToMany(mappedBy = "category")
+    @OneToMany(mappedBy = "category" , cascade = CascadeType.ALL)
     private List<Product> products = new ArrayList<>();
 
     public Category(String name) {
