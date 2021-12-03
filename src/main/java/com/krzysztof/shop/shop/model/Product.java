@@ -21,7 +21,7 @@ public class Product {
     private String photo;
     private Double price;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name="author_id")
     private Author author;
 

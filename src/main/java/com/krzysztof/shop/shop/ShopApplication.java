@@ -20,19 +20,13 @@ public class ShopApplication implements ApplicationRunner {
     private final AuthorService authorService;
     private final CategoryService categoryService;
     private final ProductService productService;
-    private  final PersonService personService;
-    private  final BasketService basketService;
-    private final ProductOrderToBasketService productOrderToBasketService;
-    private final AddressService addressService;
 
-    public ShopApplication(AuthorService authorService, CategoryService categoryService, ProductService productService, PersonService personService, BasketService basketService, ProductOrderToBasketService productOrderToBasketService, AddressService addressService) {
+
+    public ShopApplication(AuthorService authorService, CategoryService categoryService, ProductService productService){
         this.authorService = authorService;
         this.categoryService = categoryService;
         this.productService = productService;
-        this.personService = personService;
-        this.basketService = basketService;
-        this.productOrderToBasketService = productOrderToBasketService;
-        this.addressService = addressService;
+
     }
 
     public static void main(String[] args) {
@@ -87,6 +81,7 @@ public class ShopApplication implements ApplicationRunner {
         }
 
         List<Product> productList = productService.findAll();
+        if(productList.size()==0){
         Product lawsonBlue = new Product("Blue Lawson Armchair","It's blue and nice","",200.00,author1,lawson);
         Product lawsonRed = new Product("Red Lawson Armchair","It's red and comfortable","",210.99,author1,lawson);
         Product clubBrown = new Product("Red Club Armchair","It's nice armchair","",150.00,author1,club);
@@ -99,7 +94,6 @@ public class ShopApplication implements ApplicationRunner {
         Product singleCeilingLight = new Product("Single CeilingLight","Small","",90.99,author3,ceilingLighting);
         Product singleWallLight = new Product("Single WallLight","Small","",90.99,author3,wallLighting);
 
-        if(productList.size()==0){
             productService.save(lawsonBlue);
             productService.save(lawsonRed);
             productService.save(clubBrown);
