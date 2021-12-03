@@ -26,15 +26,15 @@ public class User{
     private ApplicationUserRole role;
     private boolean active;
 
-    @OneToOne
-    @JoinColumn(name = "address_id", referencedColumnName = "id")
-    private Address address;
-
-    @OneToMany(mappedBy = "user" ,cascade = CascadeType.ALL)
-    private List<ProductOrderToBasket> productOrderToBasketList = new ArrayList<>();
-
-    @OneToOne(mappedBy = "users",cascade = CascadeType.ALL)
-    private Basket basket;
+//    @OneToOne
+//    @JoinColumn(name = "address_id", referencedColumnName = "id")
+//    private Address address;
+//
+//    @OneToMany(mappedBy = "user" ,cascade = CascadeType.ALL)
+//    private List<ProductOrderToBasket> productOrderToBasketList = new ArrayList<>();
+//
+//    @OneToOne(mappedBy = "users",cascade = CascadeType.ALL)
+//    private Basket basket;
 
 
     public User(String userName, String surname, String email, String password, String phoneNumber, ApplicationUserRole role,boolean active) {

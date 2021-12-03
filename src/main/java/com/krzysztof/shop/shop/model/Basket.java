@@ -20,12 +20,9 @@ public class Basket {
     @OneToMany(mappedBy = "basket" , cascade = CascadeType.ALL)
     private List<ProductOrderToBasket> productOrderToBasketList = new ArrayList<>();
 
-    @OneToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private User users;
+
 
     public Basket(User users) {
-        this.users = users;
     }
     private Double summaryToPay;
 }

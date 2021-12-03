@@ -6,7 +6,6 @@ import javax.persistence.*;
 
 @Entity
 @NoArgsConstructor
-@AllArgsConstructor
 @Getter
 @Setter
 @Builder
@@ -19,8 +18,7 @@ public class Address {
     private String street;
     private String postcode;
 
-    @OneToOne(mappedBy = "address" ,cascade = CascadeType.ALL)
-    private User user;
+
 
     public Address(String country, String city, String street, String postcode) {
         this.country = country;

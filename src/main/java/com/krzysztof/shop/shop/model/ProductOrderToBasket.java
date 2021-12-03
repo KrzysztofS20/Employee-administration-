@@ -14,9 +14,9 @@ public class ProductOrderToBasket {
     @Id
     @GeneratedValue
     private Long id;
-    @ManyToOne
-    @JoinColumn(name="user_id" , nullable = false)
-    private User user;
+//    @ManyToOne
+//    @JoinColumn(name="user_id" , nullable = false)
+//    private User user;
     private int quantity;
 
     @ManyToOne
@@ -29,8 +29,8 @@ public class ProductOrderToBasket {
 
     private Double toPay;
 
-    public ProductOrderToBasket(User user, int quantity, Product product, Basket basket, Double toPay) {
-        this.user = user;
+    public ProductOrderToBasket(int quantity, Product product, Basket basket, Double toPay) {
+
         this.quantity = quantity;
         this.product = product;
         this.basket = basket;

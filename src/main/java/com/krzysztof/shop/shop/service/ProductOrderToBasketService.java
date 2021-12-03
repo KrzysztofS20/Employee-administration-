@@ -33,7 +33,7 @@ public class ProductOrderToBasketService {
     }
     public  void addNewOrder(User user, int quantity, Product product, Basket basket){
         Double toPay = quantity*product.getPrice();
-        ProductOrderToBasket order = new ProductOrderToBasket(user,quantity,product,basket,toPay);
+        ProductOrderToBasket order = new ProductOrderToBasket(quantity,product,basket,toPay);
         save(order);
     }
 }
