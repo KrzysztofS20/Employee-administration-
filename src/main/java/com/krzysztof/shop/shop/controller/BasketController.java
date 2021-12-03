@@ -33,10 +33,10 @@ public class BasketController {
     @GetMapping("/basket")
     public String getBasket(Model model, @CurrentSecurityContext(expression = "authentication?.name") String name) {
         Long userId = userService.getUserIdByName(name);
-//        Basket basket = basketService.findByUserId(userId);
-//        basketService.checkTotalAmountOfBasket(basket);
-//        Basket checkedBasket = basketService.findByUserId(userId);
-//        model.addAttribute("userBasket",checkedBasket);
+        Basket basket = basketService.findByUserId(userId);
+        basketService.checkTotalAmountOfBasket(basket);
+        Basket checkedBasket = basketService.findByUserId(userId);
+        model.addAttribute("userBasket",checkedBasket);
         return "basket";
     }
     @PostMapping("/delete/{id}")

@@ -13,7 +13,7 @@ import java.util.List;
 @Getter
 @Setter
 @Builder
-public class User{
+public class Testowy {
     @Id
     @GeneratedValue
     private Long id;
@@ -28,16 +28,16 @@ public class User{
 
     @OneToOne
     @JoinColumn(name = "address_id", referencedColumnName = "id")
-    private Address address;
+    private Address addresTest;
 
-    @OneToMany(mappedBy = "user" ,cascade = CascadeType.ALL)
-    private List<ProductOrderToBasket> productOrderToBasketList = new ArrayList<>();
+    @OneToMany(mappedBy = "test" ,cascade = CascadeType.ALL)
+    private List<ProductOrderToBasket> productOrderTo= new ArrayList<>();
 
-    @OneToOne(mappedBy = "users",cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "testowys",cascade = CascadeType.ALL)
     private Basket basket;
 
 
-    public User(String userName, String surname, String email, String password, String phoneNumber, ApplicationUserRole role,boolean active) {
+    public Testowy(String userName, String surname, String email, String password, String phoneNumber, ApplicationUserRole role, boolean active) {
         this.userName = userName;
         this.surname = surname;
         this.email = email;

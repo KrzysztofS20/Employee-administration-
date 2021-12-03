@@ -33,13 +33,13 @@ public class BasketService {
         basketRepository.deleteById(id);
     }
 
-//    public Basket findByUserId(Long id) {
-//        Long basketId = userService
-//                .getById(id)
-//                .getBasket()
-//                .getId();
-//        return basketRepository.getById(basketId);
-//    }
+    public Basket findByUserId(Long id) {
+        Long basketId = userService
+                .getById(id)
+                .getBasket()
+                .getId();
+        return basketRepository.getById(basketId);
+    }
 
 //    public void updateSummaryToPay(Double monetToPay, Basket basket) {
 //        Basket newBasket = new Basket(basket.getId(), basket.getProductOrderToBasketList(), basket.getUsers(), monetToPay);

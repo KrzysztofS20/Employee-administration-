@@ -10,6 +10,7 @@ import java.util.List;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+
 @Getter
 @Setter
 @Builder
@@ -20,9 +21,16 @@ public class Basket {
     @OneToMany(mappedBy = "basket" , cascade = CascadeType.ALL)
     private List<ProductOrderToBasket> productOrderToBasketList = new ArrayList<>();
 
+    @OneToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private User users;
 
+    @OneToOne
+    @JoinColumn(name = "test_id", referencedColumnName = "id")
+    private Testowy testowys;
 
     public Basket(User users) {
+        this.users = users;
     }
     private Double summaryToPay;
 }

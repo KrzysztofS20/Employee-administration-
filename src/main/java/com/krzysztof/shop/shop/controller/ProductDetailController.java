@@ -39,13 +39,13 @@ public class ProductDetailController {
         model.addAttribute("product", product);
         return "productDetail";
     }
-//    @PostMapping("/addItem/{id}")
-//    public RedirectView addItemIntoBasket(@ModelAttribute ModelForFormInProductDetail model, @CurrentSecurityContext(expression = "authentication?.name") String name, @PathVariable Long id){
-//                productOrderToBasketService.addNewOrder(
-//                        userService.getById(userService.getUserIdByName(name)),
-//                        model.getQuantityOfProduct(),
-//                        productService.getById(id),
-//                        basketService.findByUserId(userService.getUserIdByName(name)));
-//        return new RedirectView("/products");
-//    }
+    @PostMapping("/addItem/{id}")
+    public RedirectView addItemIntoBasket(@ModelAttribute ModelForFormInProductDetail model, @CurrentSecurityContext(expression = "authentication?.name") String name, @PathVariable Long id){
+                productOrderToBasketService.addNewOrder(
+                        userService.getById(userService.getUserIdByName(name)),
+                        model.getQuantityOfProduct(),
+                        productService.getById(id),
+                        basketService.findByUserId(userService.getUserIdByName(name)));
+        return new RedirectView("/products");
+    }
 }
