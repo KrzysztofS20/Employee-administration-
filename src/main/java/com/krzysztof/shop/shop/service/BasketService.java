@@ -40,10 +40,10 @@ public class BasketService {
         return basketRepository.getById(basketId);
     }
 
-//    public void updateSummaryToPay(Double monetToPay, Basket basket) {
-//        Basket newBasket = new Basket(basket.getId(), basket.getProductOrderToBasketList(), basket.getUsers(), monetToPay);
-//        save(newBasket);
-//    }
+    public void updateSummaryToPay(Double monetToPay, Basket basket) {
+        Basket newBasket = new Basket(basket.getId(), basket.getProductOrderToBasketList(), basket.getPersons(), monetToPay);
+        save(newBasket);
+    }
 
     public void checkTotalAmountOfBasket(Basket basket) {
         Double moneyToPay = 0D;
@@ -51,6 +51,6 @@ public class BasketService {
         for (ProductOrderToBasket product : list) {
             moneyToPay += product.getToPay();
         }
-//        updateSummaryToPay(moneyToPay, basket);
+        updateSummaryToPay(moneyToPay, basket);
     }
 }
