@@ -7,7 +7,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 
 @Service
@@ -15,7 +14,7 @@ import java.util.Optional;
 public class BasketService {
 
     private final BasketRepository basketRepository;
-    private final UserService userService;
+    private final PersonService personService;
 
     public List<Basket> findAll() {
         return basketRepository.findAll();
@@ -34,7 +33,7 @@ public class BasketService {
     }
 
     public Basket findByUserId(Long id) {
-        Long basketId = userService
+        Long basketId = personService
                 .getById(id)
                 .getBasket()
                 .getId();

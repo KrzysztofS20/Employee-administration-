@@ -1,8 +1,7 @@
 package com.krzysztof.shop.shop;
 
 import com.krzysztof.shop.shop.model.*;
-import com.krzysztof.shop.shop.repository.UserReposiotry;
-import com.krzysztof.shop.shop.security.ApplicationUserRole;
+import com.krzysztof.shop.shop.repository.PersonReposiotry;
 import com.krzysztof.shop.shop.service.*;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -14,23 +13,23 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import java.util.List;
 
 @SpringBootApplication
-@EnableJpaRepositories(basePackageClasses = UserReposiotry.class)
+@EnableJpaRepositories(basePackageClasses = PersonReposiotry.class)
 public class ShopApplication implements ApplicationRunner {
 
 
     private final AuthorService authorService;
     private final CategoryService categoryService;
     private final ProductService productService;
-    private  final UserService userService;
+    private  final PersonService personService;
     private  final BasketService basketService;
     private final ProductOrderToBasketService productOrderToBasketService;
     private final AddressService addressService;
 
-    public ShopApplication(AuthorService authorService, CategoryService categoryService, ProductService productService, UserService userService, BasketService basketService, ProductOrderToBasketService productOrderToBasketService, AddressService addressService) {
+    public ShopApplication(AuthorService authorService, CategoryService categoryService, ProductService productService, PersonService personService, BasketService basketService, ProductOrderToBasketService productOrderToBasketService, AddressService addressService) {
         this.authorService = authorService;
         this.categoryService = categoryService;
         this.productService = productService;
-        this.userService = userService;
+        this.personService = personService;
         this.basketService = basketService;
         this.productOrderToBasketService = productOrderToBasketService;
         this.addressService = addressService;
@@ -86,34 +85,5 @@ public class ShopApplication implements ApplicationRunner {
             categoryService.save(ceilingLighting);
             categoryService.save(wallLighting);
         }
-
-        List<Product> productList = productService.findAll();
-        Product lawsonBlue = new Product("Blue Lawson Armchair","It's blue and nice","",200.00D,author1,lawson);
-        Product lawsonRed = new Product("Red Lawson Armchair","It's red and comfortable","",210.99D,author1,lawson);
-        Product clubBrown = new Product("Red Club Armchair","It's nice armchair","",150.00D,author1,club);
-        Product clubBlue = new Product("Blue Club Armchair","It's just blue","",149.99D,author2,club);
-        Product darkWoodWardrobe = new Product("Dark Wood Wardrobe","It's just wardrobe","",199.00D,author2,wood);
-        Product birchWoodWardrobe = new Product("Birch Wood Wardrobe","It's just wardrobe","",160.00D,author2,wood);
-        Product compositeWardrobe = new Product("Composite Wardrobe","It's just wardrobe","",149.99D,author2,composite);
-        Product blackOven = new Product("Black Oven","Oven like from The Sims","",300.99D,author3,ovens);
-        Product blackRefrigerators = new Product("Black Refrigerators","Small Refrigerators","",290.99D,author3,refrigerators);
-        Product singleCeilingLight = new Product("Single CeilingLight","Small","",90.99D,author3,ceilingLighting);
-        Product singleWallLight = new Product("Single WallLight","Small","",90.99D,author3,wallLighting);
-
-        if(productList.size()==0){
-            productService.save(lawsonBlue);
-            productService.save(lawsonRed);
-            productService.save(clubBrown);
-            productService.save(clubBlue);
-            productService.save(darkWoodWardrobe);
-            productService.save(birchWoodWardrobe);
-            productService.save(compositeWardrobe);
-            productService.save(blackOven);
-            productService.save(blackRefrigerators);
-            productService.save(singleCeilingLight);
-            productService.save(singleWallLight);
-        }
-
-
     }
 }

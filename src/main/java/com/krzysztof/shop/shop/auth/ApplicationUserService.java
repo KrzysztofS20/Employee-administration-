@@ -1,8 +1,9 @@
 package com.krzysztof.shop.shop.auth;
 
 
-import com.krzysztof.shop.shop.model.User;
-import com.krzysztof.shop.shop.repository.UserReposiotry;
+
+import com.krzysztof.shop.shop.model.Person;
+import com.krzysztof.shop.shop.repository.PersonReposiotry;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -14,18 +15,18 @@ import java.util.Optional;
 public class ApplicationUserService implements UserDetailsService {
 
 
-    private final UserReposiotry userReposiotry;
+    private final PersonReposiotry personReposiotry;
 
-    public ApplicationUserService(UserReposiotry userReposiotry) {
-        this.userReposiotry = userReposiotry;
+    public ApplicationUserService(PersonReposiotry personReposiotry) {
+        this.personReposiotry = personReposiotry;
     }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Optional<User> user = userReposiotry.findUserByUserName(username);
+        Optional<Person> person = personReposiotry.findPersonByPersonName(username);
 
-        user.orElseThrow(() -> new UsernameNotFoundException("User not found " + username));
+        person.orElseThrow(() -> new UsernameNotFoundException("Person not found " + username));
 
-        return user.map(ApplicationUser::new).get();
+        return person.map(ApplicationUser::new).get();
     }
 }

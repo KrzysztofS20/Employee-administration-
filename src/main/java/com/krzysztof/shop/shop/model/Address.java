@@ -20,10 +20,8 @@ public class Address {
     private String postcode;
 
     @OneToOne(mappedBy = "address" ,cascade = CascadeType.ALL)
-    private User user;
+    private Person person;
 
-    @OneToOne(mappedBy = "addresTest" ,cascade = CascadeType.ALL)
-    private Testowy testowy;
 
     public Address(String country, String city, String street, String postcode) {
         this.country = country;

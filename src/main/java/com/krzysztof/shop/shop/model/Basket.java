@@ -3,7 +3,6 @@ package com.krzysztof.shop.shop.model;
 import lombok.*;
 
 import javax.persistence.*;
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,15 +21,12 @@ public class Basket {
     private List<ProductOrderToBasket> productOrderToBasketList = new ArrayList<>();
 
     @OneToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private User users;
+    @JoinColumn(name = "person_id", referencedColumnName = "id")
+    private Person persons;
 
-    @OneToOne
-    @JoinColumn(name = "test_id", referencedColumnName = "id")
-    private Testowy testowys;
 
-    public Basket(User users) {
-        this.users = users;
+    public Basket(Person persons) {
+        this.persons = persons;
     }
     private Double summaryToPay;
 }

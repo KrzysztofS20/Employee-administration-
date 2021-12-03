@@ -1,6 +1,6 @@
 package com.krzysztof.shop.shop.auth;
 
-import com.krzysztof.shop.shop.model.User;
+import com.krzysztof.shop.shop.model.Person;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -17,14 +17,14 @@ public class ApplicationUser implements UserDetails {
     private final boolean isCredentialsNonExpired;
     private final boolean isEnabled;
 
-    public ApplicationUser(User user) {
-        this.grantedAuthorities = user.getRole().getGrantedAuthorities();
-        this.password = user.getPassword();
-        this.username = user.getUserName();
-        this.isAccountNonExpired = user.isActive();
-        this.isAccountNonLocked = user.isActive();
-        this.isCredentialsNonExpired = user.isActive();
-        this.isEnabled = user.isActive();
+    public ApplicationUser(Person person) {
+        this.grantedAuthorities = person.getRole().getGrantedAuthorities();
+        this.password = person.getPassword();
+        this.username = person.getPersonName();
+        this.isAccountNonExpired = person.isActive();
+        this.isAccountNonLocked = person.isActive();
+        this.isCredentialsNonExpired = person.isActive();
+        this.isEnabled = person.isActive();
     }
 
 
