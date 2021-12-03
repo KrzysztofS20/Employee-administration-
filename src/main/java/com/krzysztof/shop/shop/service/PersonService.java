@@ -27,6 +27,7 @@ public class PersonService {
 
 
 
+
     public List<Person> findAll() {
         return personReposiotry.findAll();
     }
@@ -40,8 +41,11 @@ public class PersonService {
                ApplicationUserRole.CUSTOMER,
                true);
        save(person);
+
        Basket basket = new Basket(person);
        basketRepository.save(basket);
+        Address address = new Address(person);
+        addressService.save(address);
     }
 
     public void save(Person person) {

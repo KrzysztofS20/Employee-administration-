@@ -19,8 +19,9 @@ public class Address {
     private String street;
     private String postcode;
 
-    @OneToOne(mappedBy = "address" ,cascade = CascadeType.ALL)
-    private Person person;
+    @OneToOne
+    @JoinColumn(name = "person_id", referencedColumnName = "id")
+    private Person persons;
 
 
     public Address(String country, String city, String street, String postcode) {
@@ -36,5 +37,9 @@ public class Address {
         this.city = city;
         this.street = street;
         this.postcode = postcode;
+    }
+
+    public Address(Person persons) {
+        this.persons = persons;
     }
 }

@@ -26,8 +26,7 @@ public class Person{
     private ApplicationUserRole role;
     private boolean active;
 
-    @OneToOne
-    @JoinColumn(name = "address_id", referencedColumnName = "id")
+    @OneToOne(mappedBy = "persons",cascade = CascadeType.ALL)
     private Address address;
 
     @OneToMany(mappedBy = "person" ,cascade = CascadeType.ALL)

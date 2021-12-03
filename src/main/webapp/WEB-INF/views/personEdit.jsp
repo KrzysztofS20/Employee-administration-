@@ -50,7 +50,7 @@
                                 <img src="../resources/img/avatar.png" class="img-fluid" alt="">
                             </div>
                             <div class="col-4 gy-5">
-                                <h2>${user.get().userName}</h2>
+                                <h2>${user.get().personName}</h2>
                             </div>
                             <div class="col-3 gy-5">
                                 <h2>${user.get().surname}</h2>
