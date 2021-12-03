@@ -85,5 +85,32 @@ public class ShopApplication implements ApplicationRunner {
             categoryService.save(ceilingLighting);
             categoryService.save(wallLighting);
         }
+
+        List<Product> productList = productService.findAll();
+        Product lawsonBlue = new Product("Blue Lawson Armchair","It's blue and nice","",200.00,author1,lawson);
+        Product lawsonRed = new Product("Red Lawson Armchair","It's red and comfortable","",210.99,author1,lawson);
+        Product clubBrown = new Product("Red Club Armchair","It's nice armchair","",150.00,author1,club);
+        Product clubBlue = new Product("Blue Club Armchair","It's just blue","",149.99,author2,club);
+        Product darkWoodWardrobe = new Product("Dark Wood Wardrobe","It's just wardrobe","",199.00,author2,wood);
+        Product birchWoodWardrobe = new Product("Birch Wood Wardrobe","It's just wardrobe","",160.00,author2,wood);
+        Product compositeWardrobe = new Product("Composite Wardrobe","It's just wardrobe","",149.99,author2,composite);
+        Product blackOven = new Product("Black Oven","Oven like from The Sims","",300.99,author3,ovens);
+        Product blackRefrigerators = new Product("Black Refrigerators","Small Refrigerators","",290.99,author3,refrigerators);
+        Product singleCeilingLight = new Product("Single CeilingLight","Small","",90.99,author3,ceilingLighting);
+        Product singleWallLight = new Product("Single WallLight","Small","",90.99,author3,wallLighting);
+
+        if(productList.size()==0){
+            productService.save(lawsonBlue);
+            productService.save(lawsonRed);
+            productService.save(clubBrown);
+            productService.save(clubBlue);
+            productService.save(darkWoodWardrobe);
+            productService.save(birchWoodWardrobe);
+            productService.save(compositeWardrobe);
+            productService.save(blackOven);
+            productService.save(blackRefrigerators);
+            productService.save(singleCeilingLight);
+            productService.save(singleWallLight);
+        }
     }
 }
