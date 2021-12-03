@@ -67,10 +67,10 @@
         <form method="post" action="editUser">
                         <div class="row">
                             <div class="col-6">
-                                <input name="phoneNumber" value="${user.get().phoneNumber}"></input>
+                                <input name="phoneNumber" value="${user.get().phoneNumber}">
                             </div>
                             <div class="col-6">
-                                <input name="email" value="${user.get().email}"></input>
+                                <input name="email" value="${user.get().email}">
                             </div>
                         </div>
                         <div class="row">
@@ -85,10 +85,10 @@
 
                             <div class="row ">
                                 <div class="col-6 ">
-                                    <input name="country" value="${user.get().address.country}"></input>
+                                    <input name="country" value="${user.get().address.country}">
                                 </div>
                                 <div class="col-6">
-                                    <input name="city" value="${user.get().address.city}"></input>
+                                    <input name="city" value="${user.get().address.city}">
                                 </div>
                             </div>
                             <div class="row gy-3">
@@ -101,10 +101,10 @@
                             </div>
                             <div class="row ">
                                 <div class="col-6">
-                                    <input name="street" value="${user.get().address.street}"></input>
+                                    <input name="street" value="${user.get().address.street}">
                                 </div>
                                 <div class="col-6">
-                                    <input name="postCode" value="${user.get().address.postcode}"></input>
+                                    <input name="postCode" value="${user.get().address.postcode}">
                                 </div>
                             </div>
                             <div class="d-grid gap-2 col-6 mx-auto gy-3">
@@ -117,8 +117,9 @@
 
                 </div>
             </div>
+            </div>
 
-
+    </section>
 </main><!-- End #main -->
 
 <%@include file="dynamic/js.jspf" %>
