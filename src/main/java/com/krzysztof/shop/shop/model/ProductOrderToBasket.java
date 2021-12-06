@@ -25,8 +25,8 @@ public class ProductOrderToBasket {
     @JoinColumn(name = "product_id")
     private Product product;
 
-    @ManyToOne
-    @JoinColumn(name = "basket_id", nullable = false)
+    @ManyToOne()
+    @JoinColumn(name = "basket_id")
     private Basket basket;
 
     private Double toPay;
@@ -38,4 +38,5 @@ public class ProductOrderToBasket {
         this.basket = basket;
         this.toPay = toPay;
     }
+
 }

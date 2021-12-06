@@ -3,9 +3,11 @@ package com.krzysztof.shop.shop.service;
 import com.krzysztof.shop.shop.model.Basket;
 import com.krzysztof.shop.shop.model.ProductOrderToBasket;
 import com.krzysztof.shop.shop.repository.BasketRepository;
+import com.krzysztof.shop.shop.repository.ProductOrderToBasketRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -15,6 +17,7 @@ public class BasketService {
 
     private final BasketRepository basketRepository;
     private final PersonService personService;
+    private final ProductOrderToBasketService productOrderToBasketService;
 
     public List<Basket> findAll() {
         return basketRepository.findAll();
@@ -52,5 +55,17 @@ public class BasketService {
             moneyToPay += product.getToPay();
         }
         updateSummaryToPay(moneyToPay, basket);
+    }
+
+    public void updateBasket(Long id) {
+        Basket oldBasket = getById(id);
+        List<ProductOrderToBasket> list = new ArrayList<>();
+        Basket newBasket = new Basket(
+                oldBasket.getId(),
+                list,
+                oldBasket.getPersons(),
+                null
+        );
+        save(newBasket);
     }
 }

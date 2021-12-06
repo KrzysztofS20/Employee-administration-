@@ -42,8 +42,8 @@
           <div class="carousel-item active" style="background: url(../resources/img/slide/slide-1.jpg)">
             <div class="carousel-container">
               <div class="carousel-content">
-                <h2 >Welcome to <span>Eterna</span></h2>
-                <p>Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
+                <h2 >Welcome to the <span>Eterna</span> store</h2>
+                <p>In the future, promoted products will be located here</p>
               </div>
             </div>
           </div>

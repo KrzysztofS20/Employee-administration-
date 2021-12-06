@@ -29,7 +29,7 @@ public class Person{
     @OneToOne(mappedBy = "persons",cascade = CascadeType.ALL)
     private Address address;
 
-    @OneToMany(mappedBy = "person" ,cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "person")
     private List<ProductOrderToBasket> productOrderToBasketList = new ArrayList<>();
 
     @OneToOne(mappedBy = "persons",cascade = CascadeType.ALL)
