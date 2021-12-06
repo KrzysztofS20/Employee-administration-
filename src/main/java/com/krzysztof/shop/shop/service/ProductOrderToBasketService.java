@@ -31,9 +31,9 @@ public class ProductOrderToBasketService {
     public void delete(Long id) {
         productOrderToBasketRepository.deleteById(id);
     }
-    public  void addNewOrder(User user, int quantity, Product product, Basket basket){
+    public  void addNewOrder(Person person, int quantity, Product product, Basket basket){
         Double toPay = quantity*product.getPrice();
-        ProductOrderToBasket order = new ProductOrderToBasket(user,quantity,product,basket,toPay);
+        ProductOrderToBasket order = new ProductOrderToBasket(person,quantity,product,basket,toPay);
         save(order);
     }
 }

@@ -3,7 +3,7 @@ package com.krzysztof.shop.shop.controller;
 import com.krzysztof.shop.shop.model.Basket;
 import com.krzysztof.shop.shop.service.BasketService;
 import com.krzysztof.shop.shop.service.ProductOrderToBasketService;
-import com.krzysztof.shop.shop.service.UserService;
+import com.krzysztof.shop.shop.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.CurrentSecurityContext;
 import org.springframework.stereotype.Controller;
@@ -20,19 +20,19 @@ public class BasketController {
     @Autowired
     private BasketService basketService;
     @Autowired
-    private UserService userService;
+    private PersonService personService;
     @Autowired
     private ProductOrderToBasketService productOrderToBasketService;
 
-    public BasketController(BasketService basketService, UserService userService, ProductOrderToBasketService productOrderToBasketService) {
+    public BasketController(BasketService basketService, PersonService personService, ProductOrderToBasketService productOrderToBasketService) {
         this.basketService = basketService;
-        this.userService = userService;
+        this.personService = personService;
         this.productOrderToBasketService = productOrderToBasketService;
     }
 
     @GetMapping("/basket")
     public String getBasket(Model model, @CurrentSecurityContext(expression = "authentication?.name") String name) {
-        Long userId = userService.getUserIdByName(name);
+        Long userId = personService.getUserIdByName(name);
         Basket basket = basketService.findByUserId(userId);
         basketService.checkTotalAmountOfBasket(basket);
         Basket checkedBasket = basketService.findByUserId(userId);
@@ -43,5 +43,10 @@ public class BasketController {
     public RedirectView deleteOrderFromBasket(@PathVariable Long id){
         productOrderToBasketService.delete(id);
         return new RedirectView("/basket");
+    }
+    @PostMapping("/order/{id}")
+    public RedirectView orderTheProducts(@PathVariable Long id){
+        basketService.updateBasket(id);
+        return new RedirectView("/index");
     }
 }

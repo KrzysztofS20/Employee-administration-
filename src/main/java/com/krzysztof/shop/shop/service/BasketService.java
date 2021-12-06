@@ -3,11 +3,12 @@ package com.krzysztof.shop.shop.service;
 import com.krzysztof.shop.shop.model.Basket;
 import com.krzysztof.shop.shop.model.ProductOrderToBasket;
 import com.krzysztof.shop.shop.repository.BasketRepository;
+import com.krzysztof.shop.shop.repository.ProductOrderToBasketRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 
 @Service
@@ -15,7 +16,8 @@ import java.util.Optional;
 public class BasketService {
 
     private final BasketRepository basketRepository;
-    private final UserService userService;
+    private final PersonService personService;
+    private final ProductOrderToBasketService productOrderToBasketService;
 
     public List<Basket> findAll() {
         return basketRepository.findAll();
@@ -34,7 +36,7 @@ public class BasketService {
     }
 
     public Basket findByUserId(Long id) {
-        Long basketId = userService
+        Long basketId = personService
                 .getById(id)
                 .getBasket()
                 .getId();
@@ -42,7 +44,7 @@ public class BasketService {
     }
 
     public void updateSummaryToPay(Double monetToPay, Basket basket) {
-        Basket newBasket = new Basket(basket.getId(), basket.getProductOrderToBasketList(), basket.getUsers(), monetToPay);
+        Basket newBasket = new Basket(basket.getId(), basket.getProductOrderToBasketList(), basket.getPersons(), monetToPay);
         save(newBasket);
     }
 
@@ -53,5 +55,17 @@ public class BasketService {
             moneyToPay += product.getToPay();
         }
         updateSummaryToPay(moneyToPay, basket);
+    }
+
+    public void updateBasket(Long id) {
+        Basket oldBasket = getById(id);
+        List<ProductOrderToBasket> list = new ArrayList<>();
+        Basket newBasket = new Basket(
+                oldBasket.getId(),
+                list,
+                oldBasket.getPersons(),
+                null
+        );
+        save(newBasket);
     }
 }

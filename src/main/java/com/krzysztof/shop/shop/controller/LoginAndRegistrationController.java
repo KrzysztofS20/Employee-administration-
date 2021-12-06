@@ -1,7 +1,7 @@
 package com.krzysztof.shop.shop.controller;
 
 import com.krzysztof.shop.shop.auxiliaryClasses.ModelForFormRegistration;
-import com.krzysztof.shop.shop.service.UserService;
+import com.krzysztof.shop.shop.service.PersonService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -11,10 +11,10 @@ import org.springframework.web.servlet.view.RedirectView;
 @Controller
 public class LoginAndRegistrationController {
 
-    private final UserService userService;
+    private final PersonService personService;
 
-    public LoginAndRegistrationController(UserService userService) {
-        this.userService = userService;
+    public LoginAndRegistrationController(PersonService personService) {
+        this.personService = personService;
     }
 
     @GetMapping("/login")
@@ -29,7 +29,7 @@ public class LoginAndRegistrationController {
 
     @PostMapping("/createUser")
     public RedirectView createUser(@ModelAttribute ModelForFormRegistration model) {
-        userService.createUser(model);
+        personService.createPerson(model);
         return new RedirectView("/login");
     }
 }

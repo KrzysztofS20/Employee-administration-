@@ -1,8 +1,7 @@
 package com.krzysztof.shop.shop;
 
 import com.krzysztof.shop.shop.model.*;
-import com.krzysztof.shop.shop.repository.UserReposiotry;
-import com.krzysztof.shop.shop.security.ApplicationUserRole;
+import com.krzysztof.shop.shop.repository.PersonReposiotry;
 import com.krzysztof.shop.shop.service.*;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -14,26 +13,20 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import java.util.List;
 
 @SpringBootApplication
-@EnableJpaRepositories(basePackageClasses = UserReposiotry.class)
+@EnableJpaRepositories(basePackageClasses = PersonReposiotry.class)
 public class ShopApplication implements ApplicationRunner {
 
 
     private final AuthorService authorService;
     private final CategoryService categoryService;
     private final ProductService productService;
-    private  final UserService userService;
-    private  final BasketService basketService;
-    private final ProductOrderToBasketService productOrderToBasketService;
-    private final AddressService addressService;
 
-    public ShopApplication(AuthorService authorService, CategoryService categoryService, ProductService productService, UserService userService, BasketService basketService, ProductOrderToBasketService productOrderToBasketService, AddressService addressService) {
+
+    public ShopApplication(AuthorService authorService, CategoryService categoryService, ProductService productService){
         this.authorService = authorService;
         this.categoryService = categoryService;
         this.productService = productService;
-        this.userService = userService;
-        this.basketService = basketService;
-        this.productOrderToBasketService = productOrderToBasketService;
-        this.addressService = addressService;
+
     }
 
     public static void main(String[] args) {
@@ -88,6 +81,7 @@ public class ShopApplication implements ApplicationRunner {
         }
 
         List<Product> productList = productService.findAll();
+        if(productList.size()==0){
         Product lawsonBlue = new Product("Blue Lawson Armchair","It's blue and nice","",200.00,author1,lawson);
         Product lawsonRed = new Product("Red Lawson Armchair","It's red and comfortable","",210.99,author1,lawson);
         Product clubBrown = new Product("Red Club Armchair","It's nice armchair","",150.00,author1,club);
@@ -100,7 +94,6 @@ public class ShopApplication implements ApplicationRunner {
         Product singleCeilingLight = new Product("Single CeilingLight","Small","",90.99,author3,ceilingLighting);
         Product singleWallLight = new Product("Single WallLight","Small","",90.99,author3,wallLighting);
 
-        if(productList.size()==0){
             productService.save(lawsonBlue);
             productService.save(lawsonRed);
             productService.save(clubBrown);
@@ -112,35 +105,6 @@ public class ShopApplication implements ApplicationRunner {
             productService.save(blackRefrigerators);
             productService.save(singleCeilingLight);
             productService.save(singleWallLight);
-        }
-
-        List<Address> addressList = addressService.findAll();
-        Address firstAddres = new Address("Poland","Szczecin","Wyszynskiego","12-000");
-
-List<User> userList = userService.findAll();
-        User first = new User("Krzysztof","Stasiak","jedne@ot.pl","123","789456132", ApplicationUserRole.ADMIN,true);
-        User second = new User("Tomasz","Borasz","dwa@ot.pl","987","000000000",ApplicationUserRole.CUSTOMER,true);
-
-        if (userList.size()==0){
-            userService.save(first);
-            userService.save(second);
-        }
-List<Basket> basketList = basketService.findAll();
-        Basket adminBasket = new Basket(first);
-        Basket userBasket = new Basket(second);
-
-        if(basketList.size()==0){
-            basketService.save(adminBasket);
-            basketService.save(userBasket);
-        }
-
-        List<ProductOrderToBasket> productOrderToBasketList = productOrderToBasketService.findAll();
-        ProductOrderToBasket one = new ProductOrderToBasket(first,3,lawsonBlue,adminBasket,20D);
-        ProductOrderToBasket twa = new ProductOrderToBasket(first,2,blackOven,adminBasket,100D);
-
-        if(productOrderToBasketList.size()==0){
-            productOrderToBasketService.save(one);
-            productOrderToBasketService.save(twa);
         }
     }
 }

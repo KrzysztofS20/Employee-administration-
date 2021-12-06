@@ -2,10 +2,7 @@ package com.krzysztof.shop.shop.model;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,7 +19,7 @@ public class Author {
     private String name;
     private String surname;
 
-    @OneToMany(mappedBy = "author")
+    @OneToMany(mappedBy = "author", cascade = CascadeType.ALL)
     private List<Product> products = new ArrayList<>();
 
     public Author(String name, String surname) {

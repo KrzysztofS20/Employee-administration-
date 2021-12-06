@@ -1,10 +1,8 @@
 package com.krzysztof.shop.shop.controller;
 
 import com.krzysztof.shop.shop.auxiliaryClasses.ModelForFormEditUserWithAddres;
-import com.krzysztof.shop.shop.model.Basket;
-import com.krzysztof.shop.shop.model.Product;
-import com.krzysztof.shop.shop.model.User;
-import com.krzysztof.shop.shop.service.UserService;
+import com.krzysztof.shop.shop.model.Person;
+import com.krzysztof.shop.shop.service.PersonService;
 import org.springframework.security.core.annotation.CurrentSecurityContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,30 +16,30 @@ import java.util.Optional;
 @Controller
 public class PersonController {
 
-    private final UserService userService;
+    private final PersonService personService;
 
-    public PersonController(UserService userService) {
-        this.userService = userService;
+    public PersonController(PersonService personService) {
+        this.personService = personService;
     }
 
     @GetMapping("/person")
     public String getPerson(Model model, @CurrentSecurityContext(expression = "authentication?.name") String name) {
-        Optional<User> user = userService.getByName(name);
-        model.addAttribute("user",user);
+        Optional<Person> person = personService.getByName(name);
+        model.addAttribute("user",person);
         return "person";
     }
     @GetMapping("/personEdit")
     public String getPersonEdit(Model model,@CurrentSecurityContext(expression = "authentication?.name") String name){
-        Optional<User> user = userService.getByName(name);
-        model.addAttribute("user",user);
+        Optional<Person> person = personService.getByName(name);
+        model.addAttribute("user",person);
         return "personEdit";
     }
 
     @PostMapping("/editUser")
-    public RedirectView addProduct(@ModelAttribute ModelForFormEditUserWithAddres userWithAddres,@CurrentSecurityContext(expression = "authentication?.name") String name) {
-        Optional<User> user = userService.getByName(name);
-        Long id =user.get().getId();
-        userService.update(userWithAddres,id);
+    public RedirectView addProduct(@ModelAttribute ModelForFormEditUserWithAddres personWithAddres,@CurrentSecurityContext(expression = "authentication?.name") String name) {
+        Optional<Person> person = personService.getByName(name);
+        Long id =person.get().getId();
+        personService.update(personWithAddres,id);
         return new RedirectView("/person");
     }
 }

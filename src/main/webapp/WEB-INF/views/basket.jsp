@@ -112,11 +112,13 @@
   </div>
 </div>
 </div>
+      <form method="post" action='<c:url value="/order/${userBasket.id}"/>'>
 <div class="row" style="margin: 0; padding-top: 10px;">
 <button type="submit" class="btn btn-dark">
 <h2>Order</h2>
 </button>
 </div>
+      </form>
     </div>
   </div>
 </div>

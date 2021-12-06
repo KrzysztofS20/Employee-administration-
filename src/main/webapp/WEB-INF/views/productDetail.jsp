@@ -59,7 +59,7 @@
                     <option>5</option>
                   </select>
                 </div>
-                <button type="submit"  class="btn btn-dark ">Add to basket</button>
+                <button type="submit" style="margin-top: 5px"  class="btn btn-dark ">Add to basket</button>
 
           </form>
           </div>

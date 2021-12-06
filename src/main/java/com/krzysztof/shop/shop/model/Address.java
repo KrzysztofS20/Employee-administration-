@@ -2,10 +2,7 @@ package com.krzysztof.shop.shop.model;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
 @Entity
 @NoArgsConstructor
@@ -22,8 +19,10 @@ public class Address {
     private String street;
     private String postcode;
 
-    @OneToOne(mappedBy = "address")
-    private User user;
+    @OneToOne
+    @JoinColumn(name = "person_id", referencedColumnName = "id")
+    private Person persons;
+
 
     public Address(String country, String city, String street, String postcode) {
         this.country = country;
@@ -38,5 +37,9 @@ public class Address {
         this.city = city;
         this.street = street;
         this.postcode = postcode;
+    }
+
+    public Address(Person persons) {
+        this.persons = persons;
     }
 }

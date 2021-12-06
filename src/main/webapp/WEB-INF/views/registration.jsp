@@ -18,8 +18,8 @@
     <form name="createUser" method="post" action='<c:url value="/createUser"/>'>
         <h2>Create account</h2>
         <p>
-            <label for="username" class="sr-only">Username</label>
-            <input type="text" id="username" name="userName" class="form-control" placeholder="Username" required=""
+            <label for="personname" class="sr-only">Username</label>
+            <input type="text" id="personname" name="personName" class="form-control" placeholder="Username" required=""
                    autofocus="">
         </p>
         <p>
